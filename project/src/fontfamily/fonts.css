@@ -1,0 +1,30 @@
+/* 모든 WantedSans 폰트를 불러오는 CSS 파일 */
+/* 아 제발 이게 맞는걸까 */
+@font-face {
+    font-family: WantedSans;
+    src: url(./WantedSans-Black.ttf);
+}
+@font-face {
+    font-family: WantedSans;
+    src: url(./WantedSans-Bold.ttf);
+}
+@font-face {
+    font-family: WantedSans;
+    src: url(./WantedSans-ExtraBlack.ttf);
+}
+@font-face {
+    font-family: WantedSans;
+    src: url(./WantedSans-ExtraBold.ttf);
+}
+@font-face {
+    font-family: WantedSans;
+    src: url(./WantedSans-Medium.ttf);
+}
+@font-face {
+    font-family: WantedSans;
+    src: url(./WantedSans-Regular.ttf);
+}
+@font-face {
+    font-family: WantedSans;
+    src: url(./WantedSans-SemiBold.ttf);
+}
