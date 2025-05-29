@@ -1,6 +1,7 @@
 import { Outlet } from "react-router"
 import "./Header.css"
 
+
 function Header() {
     console.log("header IN") // 제발 확인용
     return (
@@ -9,7 +10,10 @@ function Header() {
                 <div id="title">TAPIE Board</div>
                 <div id="container">
                     <div id="userName">BaboJunYoung</div> {/*임시*/}
-                    <button id="logIO">로그아웃</button> {/*log In Out*/}
+                    <button id="logIOButton"> {/*log In Out*/}
+                        <img id="logIOImage" src="logOut.svg"/> {/*임시*/}
+                        <text id="logIOText">로그아웃</text>
+                    </button>
                 </div>
             </header>
             <Outlet/>

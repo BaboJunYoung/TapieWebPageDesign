@@ -5,8 +5,11 @@
     background-color: black;
     align-items: center;
     justify-content: space-between;
-    width: 100vw;
     padding: 22px 32px;
+    width: 100vw;
+
+    /* 길쭉함이 진정됨 */
+    box-sizing: border-box;
 }
 
 div, button {
@@ -15,11 +18,31 @@ div, button {
     align-items: center;
     color: white;
     font-family: WantedSans;
-    font-weight: 600;
+    /* font-weight: 600; */
+    width: auto;
+
 }
-
-
 
 #container {
     width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    
+}
+
+#logIOButton {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #FFA4A4;
+    border-radius: 8px;
+    border: 0;
+}
+
+#logIOText {
+    font-weight: 500;
+    color: black;
 }
