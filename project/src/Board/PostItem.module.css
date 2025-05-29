@@ -1,0 +1,42 @@
+@import url(../fontfamily/fonts.css);
+
+#mainContainer {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 12px;
+    gap: 12px;
+    border: 1px solid #EBEBEB
+}
+
+#title {
+    font-family: WantedSans;
+    font-size: 20px;
+    font-weight: 600;
+    width: 100%;
+    color: black;
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.containerItems {
+    font-family: WantedSans;
+    font-size: 12px;
+    font-weight: 400;
+    color: #919191;
+}
+
+#content {
+    font-family: WantedSans;
+    font-size: 14px;
+    font-weight: 500;
+    color: #626262;
+    width: 100%;
+}

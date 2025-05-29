@@ -1,0 +1,94 @@
+@import url(../fontfamily/fonts.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+#contentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 70px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    /* background-color: white; */
+}
+
+#pencilImage {
+    height : 20px;
+    width : 20px;
+
+}
+
+#writeDownButton {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 24px;
+    gap: 10px;
+    background-color: #A2D4FF;
+    border-radius: 8px; 
+    
+}
+
+#writeDownText {
+    font-family: WantedSans;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+}
+
+#totalPostText {
+    font-family: WantedSans;
+    font-weight: 500;
+    font-size: 14px;
+    color: #707070;
+}
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+}
+
+#postTypeContainer {
+    background-color: black;
+    padding: 4px 6px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    width: 280px;
+    height: 36px;
+}
+
+.postTypeButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: WantedSans;
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.postContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 24px;
+}

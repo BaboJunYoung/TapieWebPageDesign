@@ -1,22 +1,30 @@
 import { Outlet } from "react-router"
-import "./Header.css"
+import { useState } from "react"
+import styles from "./Header.module.css"
 
 
-function Header() {
+function Header({isLogIn, userName}) {
+    // props: isLogIn, userName
     console.log("header IN") // 제발 확인용
     return (
-        <div>
-            <header id="header">
-                <div id="title">TAPIE Board</div>
-                <div id="container">
-                    <div id="userName">BaboJunYoung</div> {/*임시*/}
-                    <button id="logIOButton"> {/*log In Out*/}
-                        <img id="logIOImage" src="logOut.svg"/> {/*임시*/}
-                        <text id="logIOText">로그아웃</text>
+        <div id={styles.screenContainer}>
+            <header id={styles.header}>
+                <div id={styles.title}>TAPIE Board</div>
+                <div id={styles.container}>
+                    <div id={styles.userName}>{isLogIn ? userName : null}</div>
+                    <button id={styles.logIOButton} style={{
+                        backgroundColor: isLogIn ? "#FFA4A4" : "#FFFFFF",
+                    }}> {/*log In Out*/}
+                        <img id={styles.logIOImage} src={
+                            isLogIn ? "logOut.svg" : "logIn.svg"
+                            }/>
+                        <div id={styles.logIOText}>{isLogIn ? "로그아웃" : "로그인"}</div>
                     </button>
                 </div>
             </header>
-            <Outlet/>
+            <div id={styles.contentContainer}>
+                <Outlet id="outlet"/>
+            </div>
         </div>
     )
 }

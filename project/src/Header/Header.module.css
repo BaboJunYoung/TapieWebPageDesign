@@ -1,0 +1,78 @@
+@import url(../fontfamily/fonts.css);
+
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+div, button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-family: WantedSans;
+    width: auto;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 32px;
+    margin: 0px;
+    width: 100%;
+    border: 0px;
+    /* 길쭉함이 진정됨 */
+    box-sizing: border-box;
+}
+
+#title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+
+#container {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+#logIOButton {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 12px 24px;
+    /* background-color: #FFA4A4; */
+    border-radius: 8px;
+    border: 0;
+}
+
+#logIOText {
+    font-weight: 500;
+    color: black;
+}
+
+#contentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px;
+    width: 100vw;
+}
+
+#screenContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: fit-content;
+    margin: 0;    
+}
