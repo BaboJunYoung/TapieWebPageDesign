@@ -1,9 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router"
 import { useState } from "react"
-import Board from './Board/Board.jsx'
-import Header from "./Header/Header"
-import Login from "./pages/Login";
-import Signup from "./pages/Singup";
+import Board from './pages/Board/Board.jsx'
+import Header from "./Header/Header.jsx"
+import Login from "./pages/Login/Login.jsx";
+import Signup from "./pages/Signup/Signup.jsx";
+import WritePage from "./pages/Write/write.jsx";
+
 
 function App() {
     const [userName, setUserName] = useState("");
@@ -28,6 +30,8 @@ function App() {
             { index: true, element: <Board isLogIn={isLogIn}/> },
             { path: "login", element: <Login onLogin={handleLogin}/> },
             { path: "signup", element: <Signup /> },
+            { path: "write", element: <WritePage userName={userName} onLogout={handleLogout} /> },
+            
         ]
       }
     ]);

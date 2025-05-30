@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import styles from "./Board.module.css"
-import PostItem from "./PostItem.jsx"
+import PostItem from "./PostItem/PostItem.jsx"
+import { useNavigate } from "react-router-dom"
 
 
 function Board({isLogIn}) {
   const [root] = useState("https://community-api.tapie.kr/")
   const [data, setData] = useState([]);
   const [postType, setPostType] = useState("ALL");
+
+  const navigate = useNavigate();
+
+  const handleWrite = () => {
+    // if(로그인 됨)
+      navigate("/write");
+  }
 
   useEffect(() =>{
     const func = async () => {
@@ -23,10 +31,17 @@ function Board({isLogIn}) {
     <div id={styles.contentContainer}>
       {/* 따깡 완성 */}
       <div id={styles.header}>
-        <button id={styles.writeDownButton}>
+        <button id={styles.writeDownButton} 
+          onClick={isLogIn ? handleWrite : undefined}
+          style={{
+            opacity: isLogIn ? 1 : 0.3,
+            pointerEvents: isLogIn ? "auto" : "none"
+          }}>
+
           <img src="pencil.svg" id={styles.pencilImage}/>
           <div id={styles.writeDownText}>글 작성하기</div>
         </button>
+        
         <div id={styles.totalPostText}>
           {postType == "ALL" ? "전체" : "나의"} 글 {data.length}개 작성됨.
         </div>
