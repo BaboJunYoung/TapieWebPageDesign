@@ -12,6 +12,40 @@
     border: 1px solid #EBEBEB
 }
 
+#header {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: center;
+}
+
+#titleButtonContainer {
+    display: flex;
+    gap: 8px;
+    align-items: space-between;
+}
+
+.titleButtonImage {
+    height: 14px;
+    width: 14px;
+}
+
+.titleButton {
+    display: flex;
+    border-radius: 9999px;
+    padding: 6px;
+}
+
+#fixButton {
+    background: #5CE1FF;
+}
+
+#deleteButton {
+    background: #FF5C5C;
+}
+
 #title {
     font-family: WantedSans;
     font-size: 20px;

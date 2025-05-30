@@ -14,7 +14,8 @@ function App() {
             userName={userName} isLogIn={isLogIn}
             />,
         children : [
-            { index: true, element: <Board /> },
+            { index: true, element: <Board isLogIn={isLogIn}/> },
+            // { path: "logIn", element: }
         ]
       }
     ])

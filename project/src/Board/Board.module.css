@@ -86,9 +86,11 @@
     border-radius: 8px;
 }
 
-.postContainer {
+#postContainer {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     width: 100%;
+    flex-wrap: wrap;
     gap: 24px;
 }
