@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styles from "./Write.module.css"
 
 function Write() {
   const [title, setTitle] = useState("");
@@ -41,27 +42,36 @@ function Write() {
 
   return (
     <form onSubmit={handleSubmit}>
+        <div className={styles.page_container}>
+            <div className={styles.container}>
+            <p className={styles.writeText}>글 작성</p>
+            <div className={styles.InputContainer}>
+                <div className={styles.writeContainer}>
+                    <p className={styles.write_text}>제목</p>
+                    <input
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                    placeholder="제목을 입력해주세요"
+                    className={styles.titlewrite}
+                    />
+                </div>
+                <div className={styles.writeContainer}>
+                    <p className={styles.write_text}>내용</p>
+                    <input
+                    value={content}
+                    onChange={e => setContent(e.target.value)}
+                    placeholder="내용을 입력해주세요"
+                    className={styles.contentwrite}
+                    />
+                </div>
+            <button type="submit">등록하기</button>
+            </div>
         
-      <div>
-        <p>글 작성</p>
-        <div>
-            <input
-          value={title}
-          onChange={e => setTitle(e.target.value)}
-          placeholder="제목"
-        />
-        <input
-          value={content}
-          onChange={e => setContent(e.target.value)}
-          placeholder="내용"
-        />
         </div>
         
-      </div>
+
+    </div>
       
-        
-      
-      <button type="submit">등록하기</button>
     </form>
   );
 }

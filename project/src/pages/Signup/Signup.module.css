@@ -81,7 +81,7 @@
 }
 .page_container{
     display: flex;
-    width: 1440px;
+    width: 100vh;
     padding: 40px;
     flex-direction: column;
     justify-content: center;
