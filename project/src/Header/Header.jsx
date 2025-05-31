@@ -4,13 +4,15 @@ import styles from "./Header.module.css"
 import axios from "axios";
 
 
-function Header({isLogIn, userName}) {
+function Header({setIsLogIn, setUserName, isLogIn, userName}) {
     // props: isLogIn, userName
     const navigate = useNavigate();
     const [root] = useState("https://community-api.tapie.kr/");
 
     const logOut = () => {
         axios.post(`${root}auth/logout`)
+        setIsLogIn(false);
+        setUserName("");
     }
 
     console.log("header IN") // 제발 확인용

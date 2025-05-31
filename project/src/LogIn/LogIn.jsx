@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./LogIn.module.css"
 import axios from "axios";
 import { useNavigate } from "react-router";
@@ -9,6 +9,8 @@ function LogIn({sendUserName, sendIsLogIn}) {
     const [userName, setUserName] = useState("");
     const [passWord, setPassWord] = useState("");
     const [errorCode, setErrorCode] = useState("");
+    const [color, setColor] = useState("#f00");
+
     const logIn = async (userName, passWord) => {
         try{
             const response = await axios.post(`${root}auth/login`, {
@@ -26,9 +28,26 @@ function LogIn({sendUserName, sendIsLogIn}) {
             setErrorCode(error.status);
             console.log(error.status);
         }
-        
-
     }
+    
+    useEffect( () => {
+        const interval = setInterval(() => {
+            setColor(prevColor => {
+        switch (prevColor) {
+          case "#f00": return "#ff0";
+          case "#ff0": return "#0f0";
+          case "#0f0": return "#0ff";
+          case "#0ff": return "#00f";
+          case "#00f": return "#f0f"; // 오타 수정: "00f" -> "#00f"
+          case "#f0f": return "#f00"; // 오타 수정: "f00" -> "#f00"
+          default: return "#f00"; // 예상치 못한 값일 경우 초기값으로 돌아가게
+        }
+      });
+    }, 10);
+
+        // return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
         <div id={styles.mainContainer}>
@@ -56,6 +75,13 @@ function LogIn({sendUserName, sendIsLogIn}) {
                     <img src="/logInWhite.svg"/>
                     <div id={styles.logInButtonText}>로그인</div>
                 </button>
+            </div>
+            <div id={styles.noAccountSignUpContainer}>
+                <div id={styles.noAccountSignUpText}>계정이 없으신가요?</div>
+                <div id={styles.noAccountSignUpButton}
+                onClick={()=>console.log("삐꾹")}
+                style={{backgroundColor: color}}
+                >회원가입하기</div>
             </div>
         </div>
         </>

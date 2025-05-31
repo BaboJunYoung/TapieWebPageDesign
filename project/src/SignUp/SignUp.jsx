@@ -1,21 +1,27 @@
 import { useState } from "react";
 import styles from "./SignUp.module.css";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 function SignUp() {
+    const navigate = useNavigate();
     const [root] = useState("https://community-api.tapie.kr/");
     const [userName, setUserName] = useState("");
     const [nickName, setNickName] = useState("");
     const [passWord, setPassWord] = useState("");
     const [errorCode, setErrorCode] = useState("");
     
-    const signUp = (nickName, passWord, userName) => {
+    const signUp = async (userName, nickName, passWord) => {
         try {
-            axios.post(`${root}auth/register`, {
+            await axios.post(`${root}auth/register`, {
                 "nickname": nickName,
                 "password": passWord,
                 "username": userName
             })
+            
+            // 회원가입 완료
+            alert("회원가입 완료! 로그인 해주세염 ㄷㅅㄷ");
+            navigate("/login");
         } catch(error) {
             setErrorCode(error.status);
         }
@@ -51,7 +57,7 @@ function SignUp() {
                         type="password"
                     />
                 </div>
-                <button id={styles.signUpButton} onClick={() => logIn(userName, passWord)}>
+                <button id={styles.signUpButton} onClick={() => signUp(userName, nickName, passWord)}>
                     <img src="/logInWhite.svg"/>
                     <div id={styles.signUpButtonText}></div>
                 </button>
