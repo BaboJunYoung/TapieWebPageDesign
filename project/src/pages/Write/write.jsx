@@ -22,7 +22,7 @@ function Write() {
           "content": {content},
         },
         {
-          // headers: {Authorization: `Bearer ${TOKEN}`}
+          headers: {Authorization: `Bearer ${TOKEN}`}
         }
       );
       alert("게시글 등록 성공!");
@@ -32,7 +32,7 @@ function Write() {
         console.log("---------");
         console.log(err.response)
         console.log(err.response.status)
-        alert("로그인이 필요합니다. (401)");
+        alert("로그인이 필요합니다.");
         navigate("/login");
       } else {
         alert("오류: " + (err.response?.data?.detail || "알 수 없는 오류"));
