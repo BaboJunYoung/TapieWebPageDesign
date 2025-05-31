@@ -1,11 +1,17 @@
 import { Outlet, useNavigate } from "react-router"
 import { useState } from "react"
 import styles from "./Header.module.css"
+import axios from "axios";
 
 
 function Header({isLogIn, userName}) {
     // props: isLogIn, userName
     const navigate = useNavigate();
+    const [root] = useState("https://community-api.tapie.kr/");
+
+    const logOut = () => {
+        axios.post(`${root}auth/logout`)
+    }
 
     console.log("header IN") // 제발 확인용
     return (
@@ -15,11 +21,15 @@ function Header({isLogIn, userName}) {
                     () => navigate("/")}>TAPIE Board</div>
                 <div id={styles.container}>
                     <div id={styles.userName}>{isLogIn ? userName : null}</div>
-                    <button id={styles.logIOButton} style={{
-                        backgroundColor: isLogIn ? "#FFA4A4" : "#FFFFFF",
-                    }}> {/*log In Out*/}
+                    <button 
+                        id={styles.logIOButton} 
+                        style={{
+                            backgroundColor: isLogIn ? "#FFA4A4" : "#FFFFFF"
+                        }}
+                        onClick={isLogIn ? () => logOut() : () => navigate("/login")}
+                    > {/*log In Out*/}
                         <img id={styles.logIOImage} src={
-                            isLogIn ? "logOut.svg" : "logIn.svg"
+                            isLogIn ? "/logOutBlack.svg" : "/logInBlack.svg"
                             }/>
                         <div id={styles.logIOText}>{isLogIn ? "로그아웃" : "로그인"}</div>
                     </button>

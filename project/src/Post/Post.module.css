@@ -1,5 +1,12 @@
 @import url("../fontfamily/fonts.css");
 
+/*
+ㅇㄴ 외 않 됨
+부모 컨테이너 - Header.module.css/screenContainer
+자식 컨테이너 - Header.module.css/contentContainer
+손자 컨테이너 - Post.module.css/mainContainer
+*/
+
 #mainContainer {
     width: 100%;
     height: 100%;

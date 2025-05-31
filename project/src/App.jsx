@@ -3,6 +3,8 @@ import { useState } from "react"
 import Board from './Board/Board.jsx'
 import Header from "./Header/Header"
 import Post from "./Post/Post.jsx"
+import LogIn from "./LogIn/LogIn.jsx"
+import SignUp from "./SignUp/SignUp.jsx"
 
 function App() {
     const [userName, setUserName] = useState("");
@@ -16,7 +18,9 @@ function App() {
             />,
         children : [
             { index: true, element: <Board isLogIn={isLogIn}/> },
-            { path: "post/:postId", element: <Post/>}
+            { path: "post/:postId", element: <Post/>},
+            { path: "login", element: <LogIn sendUserName={setUserName} sendIsLogIn={setIsLogIn}/>},
+            { path: "signup", element: <SignUp />}
         ]
       }
     ])

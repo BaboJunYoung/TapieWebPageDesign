@@ -5,13 +5,14 @@ import { useEffect, useState } from "react";
 
 function Post() {
     const params = useParams();
+    const [root] = useState("https://community-api.tapie.kr/")
     const [title, setTitle] = useState("");
     const [userName, setUserName] = useState("");
     const [date, setDate] = useState("");
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        axios.get(`https://community-api.tapie.kr/board/posts/${params.postId}`)
+        axios.get(`${root}board/posts/${params.postId}`)
         .then(response => {
             response = response.data;
             let date = response.createdAt;
