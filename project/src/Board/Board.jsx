@@ -55,6 +55,7 @@ function Board({isLogIn}) {
           {data.map((post) => 
             <PostItem 
               key={post.id}
+              postId={post.id}
               title={post.title}
               postType={postType}
               userName={post.author.username}

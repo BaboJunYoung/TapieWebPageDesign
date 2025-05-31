@@ -1,12 +1,17 @@
+import { useNavigate } from "react-router"
 import styles from "./PostItem.module.css"
 
-function PostItem({title, postType, userName, date, content}) {
+function PostItem({title, postId, postType, userName, date, content}) {
+    const navigate = useNavigate();
     date = `${date.slice(0, 4)}. ${date.slice(5, 7)}. ${date.slice(8, 10)}`
+    
     console.log("POSTITEM IN")
     console.log(postType==="MINE")
+
+
     return (
         <>
-        <div id={styles.mainContainer}>
+        <div id={styles.mainContainer} onClick={() => navigate(`/post/${postId}`)}>
             <div id={styles.header}>
                 <div id={styles.title}>{title}</div>
                 {postType==="MINE" &&

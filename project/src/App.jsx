@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import { useState } from "react"
 import Board from './Board/Board.jsx'
 import Header from "./Header/Header"
+import Post from "./Post/Post.jsx"
 
 function App() {
     const [userName, setUserName] = useState("");
@@ -15,7 +16,7 @@ function App() {
             />,
         children : [
             { index: true, element: <Board isLogIn={isLogIn}/> },
-            // { path: "logIn", element: }
+            { path: "post/:postId", element: <Post/>}
         ]
       }
     ])

@@ -1,15 +1,18 @@
-import { Outlet } from "react-router"
+import { Outlet, useNavigate } from "react-router"
 import { useState } from "react"
 import styles from "./Header.module.css"
 
 
 function Header({isLogIn, userName}) {
     // props: isLogIn, userName
+    const navigate = useNavigate();
+
     console.log("header IN") // 제발 확인용
     return (
         <div id={styles.screenContainer}>
             <header id={styles.header}>
-                <div id={styles.title}>TAPIE Board</div>
+                <div id={styles.title} onClick={
+                    () => navigate("/")}>TAPIE Board</div>
                 <div id={styles.container}>
                     <div id={styles.userName}>{isLogIn ? userName : null}</div>
                     <button id={styles.logIOButton} style={{
