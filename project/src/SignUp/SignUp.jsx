@@ -59,7 +59,7 @@ function SignUp() {
                 </div>
                 <button id={styles.signUpButton} onClick={() => signUp(userName, nickName, passWord)}>
                     <img src="/logInWhite.svg"/>
-                    <div id={styles.signUpButtonText}></div>
+                    <div id={styles.signUpButtonText}>회원가입</div>
                 </button>
             </div>
         </div>

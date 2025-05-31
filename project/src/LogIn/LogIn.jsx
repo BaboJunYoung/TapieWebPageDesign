@@ -79,7 +79,7 @@ function LogIn({sendUserName, sendIsLogIn}) {
             <div id={styles.noAccountSignUpContainer}>
                 <div id={styles.noAccountSignUpText}>계정이 없으신가요?</div>
                 <div id={styles.noAccountSignUpButton}
-                onClick={()=>console.log("삐꾹")}
+                onClick={()=>navigate("/signup")}
                 style={{backgroundColor: color}}
                 >회원가입하기</div>
             </div>

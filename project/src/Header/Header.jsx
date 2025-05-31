@@ -28,7 +28,7 @@ function Header({setIsLogIn, setUserName, isLogIn, userName}) {
                         style={{
                             backgroundColor: isLogIn ? "#FFA4A4" : "#FFFFFF"
                         }}
-                        onClick={isLogIn ? () => logOut() : () => navigate("/login")}
+                        onClick={isLogIn ? logOut : () => navigate("/login")}
                     > {/*log In Out*/}
                         <img id={styles.logIOImage} src={
                             isLogIn ? "/logOutBlack.svg" : "/logInBlack.svg"
