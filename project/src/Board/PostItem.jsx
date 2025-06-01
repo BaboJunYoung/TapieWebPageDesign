@@ -2,13 +2,16 @@ import { useNavigate } from "react-router"
 import styles from "./PostItem.module.css"
 import axios from "axios"
 
-function PostItem({title, postId, postType, userName, date, content}) {
+function PostItem({title, postId, postType, userName, date, content, setIsUpdate}) {
     const navigate = useNavigate();
     const root = "https://community-api.tapie.kr";
     date = `${date.slice(0, 4)}. ${date.slice(5, 7)}. ${date.slice(8, 10)}`
     
     const deletePost = () => {
-        axios.delete(root+"/board/posts/"+postId);
+        axios.delete(root+"/board/posts/"+postId, {
+            withCredentials: true
+        });
+        setIsUpdate(true);
     }
     
     return (

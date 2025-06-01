@@ -10,6 +10,7 @@ function Board({isLogIn}) {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [postType, setPostType] = useState("ALL");
+  const [isUpdate, setIsUpdate] = useState(false);
 
   useEffect(() =>{
     const func = async () => {
@@ -23,7 +24,8 @@ function Board({isLogIn}) {
       console.log(response.data);
     }
     func();
-  }, [postType])
+    if(isUpdate) setIsUpdate(false);
+  }, [postType, isUpdate])
 
   return (
     <>
@@ -68,6 +70,7 @@ function Board({isLogIn}) {
                 userName={post.author.nickname}
                 date={post.createdAt}
                 content={post.content}
+                setIsUpdate={setIsUpdate}
               />
             )
           )}
