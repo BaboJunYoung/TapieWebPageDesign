@@ -17,7 +17,7 @@ function App() {
         path : "/",
         element : <Header
             userName={userName} isLogIn={isLogIn}
-            setIsLogIn={setIsLogIn}
+            setIsLogIn={setIsLogIn} setUserName={setUserName}
             />,
         children : [
             { index: true, element: <Board isLogIn={isLogIn}/> },

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 
 
 function Board({isLogIn}) {
-  const [root] = useState("https://community-api.tapie.kr/");
+  const root = "https://community-api.tapie.kr";
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [postType, setPostType] = useState("ALL");
@@ -16,8 +16,8 @@ function Board({isLogIn}) {
     const func = async () => {
       let response;
       postType == "ALL" ?
-        response = await axios.get(`${root}board/posts`)
-      : response = await axios.get(`${root}board/posts/search?author=@me`, {
+        response = await axios.get(root+"/board/posts")
+      : response = await axios.get(root+"/board/posts/search?author=@me", {
         withCredentials: true
       })
       setData(response.data);
@@ -32,7 +32,11 @@ function Board({isLogIn}) {
     <div id={styles.contentContainer}>
       {/* 따깡 완성 */}
       <div id={styles.header}>
-        <button id={styles.writeDownButton} onClick={()=>navigate("/writepost")}>
+        <button
+          id={styles.writeDownButton}
+          onClick={()=>isLogIn ? navigate("/writepost") : console.log("삐꾹")}
+          style={{opacity: isLogIn ? "100%" : "30%"}}  
+        >
           <img src="/pencil.svg" id={styles.pencilImage}/>
           <div id={styles.writeDownText}>글 작성하기</div>
         </button>
