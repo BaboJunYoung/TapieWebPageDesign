@@ -1,47 +1,39 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import styles from "./Board.module.css"
-import PostItem from "./PostItem/PostItem.jsx"
-import { useNavigate } from "react-router-dom"
+import PostItem from "./PostItem.jsx"
+import { useNavigate } from "react-router";
 
 
 function Board({isLogIn}) {
-  const [root] = useState("https://community-api.tapie.kr/")
+  const [root] = useState("https://community-api.tapie.kr/");
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [postType, setPostType] = useState("ALL");
 
-  const navigate = useNavigate();
-
-  const handleWrite = () => {
-    // if(로그인 됨)
-      navigate("/write");
-  }
-
   useEffect(() =>{
     const func = async () => {
-      const response = await axios.get(root+"board/posts");
+      let response;
+      postType == "ALL" ?
+        response = await axios.get(`${root}board/posts`)
+      : response = await axios.get(`${root}board/posts/search?author=@me`, {
+        withCredentials: true
+      })
       setData(response.data);
       console.log(response.data);
     }
     func();
-  }, [])
+  }, [postType])
 
   return (
     <>
     <div id={styles.contentContainer}>
       {/* 따깡 완성 */}
       <div id={styles.header}>
-        <button id={styles.writeDownButton} 
-          onClick={isLogIn ? handleWrite : undefined}
-          style={{
-            opacity: isLogIn ? 1 : 0.3,
-            pointerEvents: isLogIn ? "auto" : "none"
-          }}>
-
-          <img src="pencil.svg" id={styles.pencilImage}/>
+        <button id={styles.writeDownButton} onClick={()=>navigate("/writepost")}>
+          <img src="/pencil.svg" id={styles.pencilImage}/>
           <div id={styles.writeDownText}>글 작성하기</div>
         </button>
-        
         <div id={styles.totalPostText}>
           {postType == "ALL" ? "전체" : "나의"} 글 {data.length}개 작성됨.
         </div>
@@ -67,15 +59,17 @@ function Board({isLogIn}) {
         {/* 게시물 올라오는 곳 */}
         <div id={styles.postContainer}>
           {/* 게시물 */}
-          {data.map((post) => 
-            <PostItem 
-              key={post.id}
-              title={post.title}
-              postType={postType}
-              userName={post.author.username}
-              date={post.createdAt}
-              content={post.content}
-            />
+          {data.map((post) => (
+              <PostItem 
+                key={post.id}
+                postId={post.id}
+                title={post.title}
+                postType={postType}
+                userName={post.author.nickname}
+                date={post.createdAt}
+                content={post.content}
+              />
+            )
           )}
         </div>
       </div>
