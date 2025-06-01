@@ -6,6 +6,7 @@ import Post from "./Post/Post.jsx"
 import LogIn from "./LogIn/LogIn.jsx"
 import SignUp from "./SignUp/SignUp.jsx"
 import WritePost from "./WritePost/WritePost.jsx"
+import EditPost from "./EditPost/EditPost.jsx"
 
 function App() {
     const [userName, setUserName] = useState("");
@@ -27,6 +28,7 @@ function App() {
             />},
             { path: "signup", element: <SignUp />},
             { path: "writepost", element: <WritePost />},
+            { path: "editpost/:postId", element: <EditPost />},
         ]
       }
     ])
